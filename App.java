@@ -18,11 +18,9 @@ public class App {
     @Override
     public RedisCredentials get() {
       String password = "";
-    
-      // TODO(developer): replace with your prefered project values.
-      // The service account must be granted the roles/iam.serviceAccountTokenCreator role
+    // To Do: Please modify the Service Account used, 'example-service-account@example-project.iam.gserviceaccount.com' to access the MRC. 
+    // The service account must have "Cloud Memorystore Redis Db Connection User"
       
-    
       try (IamCredentialsClient iamCredentialsClient = IamCredentialsClient.create()) {
         String name =
             "projects/-/serviceAccounts/example-service-account@example-project.iam.gserviceaccount.com";
@@ -45,7 +43,6 @@ public class App {
   public static void main(String[] args) {
     String discoveryEndpointIp = "insert discovery endpoint ip";
     int discoveryEndpointPort = 6379;
-
 
     GenericObjectPoolConfig<Connection> config = new GenericObjectPoolConfig<Connection>();
     config.setTestWhileIdle(true);
